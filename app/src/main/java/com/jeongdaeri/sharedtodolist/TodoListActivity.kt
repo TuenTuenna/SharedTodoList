@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_todo_list.*
 
-class TodoListActivity : AppCompatActivity() {
+class TodoListActivity : AppCompatActivity(), TodoRecyclerviewInterface {
 
 
     companion object {
@@ -53,8 +53,8 @@ class TodoListActivity : AppCompatActivity() {
         // 저장된 목록 가져오기
         myTodoList = SharedManager.getTodoList() as ArrayList<Todo>
 
-
-        todoListRecyclerViewAdapter = TodoListRecyclerViewAdapter()
+        // 리사이클러뷰 어답터 준비
+        todoListRecyclerViewAdapter = TodoListRecyclerViewAdapter(this)
 
         // 기관총에 장전함
         todoListRecyclerViewAdapter.todoList = myTodoList
@@ -63,6 +63,8 @@ class TodoListActivity : AppCompatActivity() {
 //        todoListRecyclerViewAdapter.submitTodoList(myTodoList)
 
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
+
+
         linearLayoutManager.stackFromEnd = true
 
         todo_list_recycler_view.apply {
@@ -79,7 +81,16 @@ class TodoListActivity : AppCompatActivity() {
 
     }
 
+    // 특정 할일 아이템이 변경되었다.
+    override fun onTodoItemChanged(position: Int, isDone: Boolean) {
+        Log.d(TAG, "TodoListActivity - onTodoItemChanged() called / position: $position / isDone: $isDone")
 
+        this.myTodoList[position].isDone = isDone
+
+        // 변경된 배열을 저장한다
+        SharedManager.storeTodoList(this.myTodoList)
+
+    }
 
 
 }

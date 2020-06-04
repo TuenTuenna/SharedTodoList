@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.layout_todo_item.view.*
 
-class TodoListRecyclerViewAdapter : RecyclerView.Adapter<TodoItemViewHolder>() {
+class TodoListRecyclerViewAdapter(todoRecyclerviewInterface: TodoRecyclerviewInterface)
+                        : RecyclerView.Adapter<TodoItemViewHolder>() {
 
     companion object {
         const val TAG: String = "로그"
@@ -14,14 +15,23 @@ class TodoListRecyclerViewAdapter : RecyclerView.Adapter<TodoItemViewHolder>() {
 
     var todoList = ArrayList<Todo>()
 
+    private var todoRecyclerviewInterface : TodoRecyclerviewInterface? = null
+
+    init {
+        Log.d(TAG, "TodoListRecyclerViewAdapter - init() called")
+        this.todoRecyclerviewInterface = todoRecyclerviewInterface
+
+    }
+
+
+
     // 어떤 레이아웃
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoItemViewHolder {
 
         // 껍데기 장착
         return TodoItemViewHolder(
-            itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.layout_todo_item, parent, false)
-        )
+            itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout_todo_item, parent, false)
+        , todoRecyclerviewInterface = this.todoRecyclerviewInterface!!)
 
     }
 

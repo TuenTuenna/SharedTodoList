@@ -114,7 +114,7 @@ object SharedManager {
         // 쉐어드 가져오기
         val shared = App.instance.getSharedPreferences(SHARED_TODO_LIST, Context.MODE_PRIVATE)
 
-
+        // 저장되어있던 문자열
         val storedTodoListString = shared.getString(KEY_TODO_LIST, "")!!
 
 
@@ -123,6 +123,7 @@ object SharedManager {
 
 
         if(storedTodoListString.isNotEmpty()){
+
             storedTodoList = Gson().fromJson(storedTodoListString, Array<Todo>::class.java).toMutableList() as ArrayList<Todo>
         }
 
