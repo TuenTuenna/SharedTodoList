@@ -92,5 +92,9 @@ class TodoListActivity : AppCompatActivity(), TodoRecyclerviewInterface {
 
     }
 
+    override fun onTodoItemDeleted(position: Int) {
+
+    }
+
 
 }

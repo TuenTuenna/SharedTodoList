@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "362743042782",
+    "firebase_url": "https://myfirebasetodolist-af078.firebaseio.com",
+    "project_id": "myfirebasetodolist-af078",
+    "storage_bucket": "myfirebasetodolist-af078.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362743042782:android:618f87a4dc04e91bd2a84f",
+        "android_client_info": {
+          "package_name": "com.jeongdaeri.sharedtodolist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362743042782-qrq7e2jiq7vifvcrd7sa85392uqfh2lt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk7Xvd1ajChL8KN4T0H7XDWbM89_SlVmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362743042782-qrq7e2jiq7vifvcrd7sa85392uqfh2lt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

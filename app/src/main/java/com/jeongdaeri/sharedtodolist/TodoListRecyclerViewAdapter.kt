@@ -11,6 +11,11 @@ class TodoListRecyclerViewAdapter(todoRecyclerviewInterface: TodoRecyclerviewInt
 
     companion object {
         const val TAG: String = "로그"
+
+        const val ME_SEND: Int = 0
+        const val OTHER_SEND: Int = 1
+        const val ADVERTISE: Int = 2
+
     }
 
     var todoList = ArrayList<Todo>()
@@ -28,6 +33,19 @@ class TodoListRecyclerViewAdapter(todoRecyclerviewInterface: TodoRecyclerviewInt
     // 어떤 레이아웃
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoItemViewHolder {
 
+
+        when(viewType){
+            ME_SEND -> {
+                // 내가 보낸 레이아웃
+            }
+            OTHER_SEND -> {
+                //
+            }
+            ADVERTISE -> {
+
+            }
+        }
+
         // 껍데기 장착
         return TodoItemViewHolder(
             itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout_todo_item, parent, false)
@@ -39,6 +57,10 @@ class TodoListRecyclerViewAdapter(todoRecyclerviewInterface: TodoRecyclerviewInt
     override fun getItemCount(): Int {
         return this.todoList.size
     }
+
+//    override fun getItemViewType(position: Int): Int {
+//        return super.getItemViewType(position)
+//    }
 
     //
     override fun onBindViewHolder(holder: TodoItemViewHolder, position: Int) {
