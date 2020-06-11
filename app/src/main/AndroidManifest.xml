@@ -11,8 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
 
-        <activity android:name=".TodoListActivity"
-
+        <activity android:name=".FirebaseActivity"
             android:windowSoftInputMode="adjustPan|adjustResize"
             >
             <intent-filter>
@@ -22,14 +21,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RegisterUserActivity">
+        <activity
+            android:name=".TodoListActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize">
 
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".RegisterUserActivity"></activity>
 
-        </activity>
-
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

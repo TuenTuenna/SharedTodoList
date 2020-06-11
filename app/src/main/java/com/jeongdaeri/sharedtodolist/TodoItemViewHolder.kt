@@ -30,6 +30,7 @@ class TodoItemViewHolder(itemView: View,
         itemView.setOnLongClickListener(this)
         itemView.todo_check_box.setOnCheckedChangeListener(this)
 
+
         this.todoRecyclerviewInterface = todoRecyclerviewInterface
     }
 
@@ -45,8 +46,12 @@ class TodoItemViewHolder(itemView: View,
         itemTodoText.text = todoItem.content
         itemCheckBox.isChecked = todoItem.isDone
 
+        // 아이템이 체크 되었을 때
         if(todoItem.isDone){
             itemTodoText.paintFlags = itemTodoText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            itemDeleteBtn.visibility = View.VISIBLE
+        } else {
+            itemDeleteBtn.visibility = View.GONE
         }
 
     }
@@ -64,13 +69,17 @@ class TodoItemViewHolder(itemView: View,
 
     override fun onClick(view: View?) {
         Log.d(TAG, "TodoItemViewHolder - onClick() called")
-
+        when(view){
+            itemDeleteBtn -> {
+                // 리모콘 발동
+                this.todoRecyclerviewInterface.onTodoItemDeleted(adapterPosition)
+            }
+        }
     }
 
     // 체크박스 체크 여부
     override fun onCheckedChanged(checkBox: CompoundButton?, isChecked: Boolean) {
         Log.d(TAG, "TodoItemViewHolder - onCheckedChanged() called ")
-
         if(checkBox == itemCheckBox){
             Log.d(TAG, "TodoItemViewHolder - isChecked : $isChecked")
 
@@ -82,10 +91,6 @@ class TodoItemViewHolder(itemView: View,
             } else {
                 itemTodoText.paintFlags = 0
             }
-
         }
-
     }
-
-
 }

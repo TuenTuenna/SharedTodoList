@@ -32,7 +32,7 @@
             />
         <ImageView
             android:id="@+id/delete_todo_btn"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:src="@drawable/ic_delete_forever_red_24dp"
             android:layout_width="30dp"
             android:layout_height="match_parent"
